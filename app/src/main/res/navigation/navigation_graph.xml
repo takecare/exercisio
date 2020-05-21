@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/anotherFragment"
+        android:name="io.exercic.ui.AnotherFragment"
+        android:label="AnotherFragment"
+        tools:layout="@layout/fragment_another">
+        <action
+            android:id="@+id/action_another_to_dummy"
+            app:destination="@id/dummyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dummyFragment"
+        android:name="io.exercic.ui.DummyFragment"
+        android:label="DummyFragment"
+        tools:layout="@layout/fragment_dummy">
+        <argument android:name="param1" />
+        <deepLink app:uri="www.example.com/user/{userName}" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="io.exercic.ui.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_main_to_another"
+            app:destination="@id/anotherFragment" />
+    </fragment>
+</navigation>

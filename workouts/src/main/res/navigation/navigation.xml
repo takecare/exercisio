@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation">
+
+    <fragment
+        android:id="@+id/dummyFragment"
+        android:name="io.exercic.workouts.ui.WorkoutsFragment"
+        android:label="WorkoutsFragment"
+        tools:layout="@layout/fragment_workouts">
+        <argument android:name="param1" />
+        <deepLink app:uri="exercisio://workouts" />
+    </fragment>
+
+</navigation>

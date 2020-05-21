@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: loadConfig('kotlin')
+apply from: loadConfig('android')
+apply from: loadConfig('viewmodel')
+apply from: loadConfig('navigation')
+apply from: loadConfig('android-test')
+apply from: loadConfig('test')
+apply from: loadConfig('signing')
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+
+    defaultConfig {
+        applicationId "io.exercic"
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    // implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ':workouts')
+//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+}

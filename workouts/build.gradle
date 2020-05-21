@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: loadConfig('kotlin')
+apply from: loadConfig('android')
+apply from: loadConfig('viewmodel')
+apply from: loadConfig('navigation')
+apply from: loadConfig('android-test')
+apply from: loadConfig('test')
