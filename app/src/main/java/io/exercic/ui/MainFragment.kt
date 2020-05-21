@@ -1,5 +1,6 @@
 package io.exercic.ui
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +29,7 @@ class MainFragment : Fragment() {
             findNavController().navigate(R.id.action_main_to_another)
         }
         view.findViewById<Button>(R.id.otherButton).setOnClickListener {
-            //findNavController().navigate(Uri.parse("exercisio://workouts"))
-            findNavController().navigate(R.id.action_main_to_workouts)
+            findNavController().navigate(Uri.parse("exercisio://workouts"))
         }
 
         return view

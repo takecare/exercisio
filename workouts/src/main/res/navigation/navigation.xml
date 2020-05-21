@@ -5,10 +5,9 @@
     android:id="@+id/navigation">
 
     <fragment
-        android:id="@+id/workoutsFragment"
+        android:id="@+id/dummyFragment"
         android:name="io.exercic.workouts.ui.WorkoutsFragment"
         android:label="WorkoutsFragment"
-        app:moduleName="workouts"
         tools:layout="@layout/fragment_workouts">
         <argument android:name="param1" />
         <deepLink app:uri="exercisio://workouts" />
