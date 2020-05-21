@@ -5,6 +5,18 @@
     android:id="@+id/navigation_graph"
     app:startDestination="@id/mainFragment">
 
+    <include app:graph="@navigation/navigation_workouts" />
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="io.exercic.ui.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_main_to_another"
+            app:destination="@id/anotherFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/anotherFragment"
         android:name="io.exercic.ui.AnotherFragment"
@@ -22,15 +34,5 @@
         tools:layout="@layout/fragment_dummy">
         <argument android:name="param1" />
         <deepLink app:uri="www.example.com/user/{userName}" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="io.exercic.ui.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/fragment_main">
-        <action
-            android:id="@+id/action_main_to_another"
-            app:destination="@id/anotherFragment" />
     </fragment>
 </navigation>
