@@ -3,7 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/mainFragment"
+    tools:ignore="UnusedNavigation"> <!-- it is used -->
+
+    <include-dynamic
+        android:id="@+id/includedGraph"
+        app:graphPackage="io.exercic.workouts"
+        app:graphResName="navigation"
+        app:moduleName="workouts" />
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="io.exercic.ui.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_main_to_workouts"
+            app:destination="@id/workoutsFragment" />
+        <action
+            android:id="@+id/action_main_to_another"
+            app:destination="@id/anotherFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/anotherFragment"
@@ -24,13 +44,4 @@
         <deepLink app:uri="www.example.com/user/{userName}" />
     </fragment>
 
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="io.exercic.ui.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/fragment_main">
-        <action
-            android:id="@+id/action_main_to_another"
-            app:destination="@id/anotherFragment" />
-    </fragment>
 </navigation>

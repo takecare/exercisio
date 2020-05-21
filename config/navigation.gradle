@@ -8,8 +8,9 @@ dependencies {
     // Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 
-    // Dynamic Feature Module Support
+// Dynamic Feature Module Support
 //    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
