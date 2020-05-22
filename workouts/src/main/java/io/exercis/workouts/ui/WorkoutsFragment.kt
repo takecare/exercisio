@@ -1,4 +1,4 @@
-package io.exercic.workouts.ui
+package io.exercis.workouts.ui
 
 import android.net.Uri
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import io.exercic.workouts.R
+import io.exercis.workouts.R
 
 class WorkoutsFragment : Fragment() {
 

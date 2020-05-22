@@ -1,4 +1,4 @@
-rootProject.name = 'exercicio'
+rootProject.name = 'exercisio'
 
 include ':app'
 include ':workouts'

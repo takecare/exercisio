@@ -1,7 +1,8 @@
-package io.exercic
+package io.exercis
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import io.exercis.R
 
 class MainActivity : AppCompatActivity() {
 

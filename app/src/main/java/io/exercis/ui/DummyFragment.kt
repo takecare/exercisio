@@ -1,4 +1,4 @@
-package io.exercic.ui
+package io.exercis.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import io.exercic.R
+import io.exercis.R
 
 const val ARG_PARAM = "param"
 

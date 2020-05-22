@@ -1,4 +1,4 @@
-package io.exercic.ui
+package io.exercis.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import io.exercic.R
+import io.exercis.R
 
 class AnotherFragment : Fragment() {
     companion object {

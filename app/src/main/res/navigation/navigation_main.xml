@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="io.exercic.ui.MainFragment"
+        android:name="io.exercis.ui.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
         <action
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/anotherFragment"
-        android:name="io.exercic.ui.AnotherFragment"
+        android:name="io.exercis.ui.AnotherFragment"
         android:label="AnotherFragment"
         tools:layout="@layout/fragment_another">
         <action
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/dummyFragment"
-        android:name="io.exercic.ui.DummyFragment"
+        android:name="io.exercis.ui.DummyFragment"
         android:label="DummyFragment"
         tools:layout="@layout/fragment_dummy">
         <argument android:name="param" />

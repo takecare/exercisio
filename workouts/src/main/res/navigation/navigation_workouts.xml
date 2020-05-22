@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/dummyFragment"
-        android:name="io.exercic.workouts.ui.WorkoutsFragment"
+        android:name="io.exercis.workouts.ui.WorkoutsFragment"
         android:label="WorkoutsFragment"
         tools:layout="@layout/fragment_workouts">
         <argument android:name="param1" />

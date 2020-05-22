@@ -1,4 +1,4 @@
-package io.exercic.workouts
+package io.exercis.workouts
 
 import org.junit.Test
 

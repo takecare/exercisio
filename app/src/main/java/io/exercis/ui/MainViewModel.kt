@@ -1,4 +1,4 @@
-package io.exercic.ui
+package io.exercis.ui
 
 import androidx.lifecycle.ViewModel
 

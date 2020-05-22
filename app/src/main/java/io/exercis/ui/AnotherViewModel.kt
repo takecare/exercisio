@@ -1,7 +1,7 @@
-package io.exercic.workouts.ui
+package io.exercis.ui
 
 import androidx.lifecycle.ViewModel
 
-class WorkoutsViewModel : ViewModel() {
+class AnotherViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 }

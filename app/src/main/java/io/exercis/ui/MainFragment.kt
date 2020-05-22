@@ -1,4 +1,4 @@
-package io.exercic.ui
+package io.exercis.ui
 
 import android.net.Uri
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import io.exercic.R
+import io.exercis.R
 
 class MainFragment : Fragment() {
 

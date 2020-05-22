@@ -1,4 +1,4 @@
-package io.exercic
+package io.exercis
 
 import org.junit.Test
 
