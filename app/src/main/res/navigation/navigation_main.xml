@@ -32,7 +32,7 @@
         android:name="io.exercic.ui.DummyFragment"
         android:label="DummyFragment"
         tools:layout="@layout/fragment_dummy">
-        <argument android:name="param1" />
-        <deepLink app:uri="www.example.com/user/{userName}" />
+        <argument android:name="param" />
+        <deepLink app:uri="exercisio://dummy" />
     </fragment>
 </navigation>

@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import io.exercic.R
 
-const val ARG_PARAM = "param1"
+const val ARG_PARAM = "param"
 
 /**
  * A simple [Fragment] subclass.
