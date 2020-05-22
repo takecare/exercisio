@@ -1,3 +1,5 @@
+loadConfig('versions')
+
 buildscript {
     ext.kotlin_version = '1.3.72'
     ext.nav_version = '2.3.0-alpha06'
