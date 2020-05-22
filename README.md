@@ -1,4 +1,4 @@
-### exercis.io
+### exercis.io
 
 #### Module structure
 
@@ -10,7 +10,7 @@ Structure still under review.
 - Session: exercise session/in-play
 - Settings: app-wide settings, including settings screen
 
-#### Architecture and dependencies
+#### Architecture and dependencies
 
 Questions left to answer:
 
