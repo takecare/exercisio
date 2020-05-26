@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import io.exercis.workouts.R
+import io.exercis.workouts.databinding.FragmentWorkoutsBinding
 
 class WorkoutsFragment : Fragment() {
 
@@ -17,19 +16,21 @@ class WorkoutsFragment : Fragment() {
         fun newInstance() = WorkoutsFragment()
     }
 
+    private lateinit var binding: FragmentWorkoutsBinding
     private lateinit var viewModel: WorkoutsViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_workouts, container, false)
+        binding = FragmentWorkoutsBinding.inflate(layoutInflater, container, false)
 
-        view.findViewById<Button>(R.id.workouts_button).setOnClickListener {
+        binding.workoutsButton.setOnClickListener {
             findNavController().navigate(Uri.parse("exercisio://dummy"))
         }
 
-        return view
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
