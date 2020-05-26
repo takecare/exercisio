@@ -1,0 +1,4 @@
+ForbiddenComment - [MainViewModel] at /Users/rmvt/Desktop/repos/exercicio/app/src/main/java/io/exercis/ui/MainViewModel.kt:6:5 - Signature=MainViewModel.kt$MainViewModel$// TODO: Implement the ViewModel
+ForbiddenComment - [onActivityCreated] at /Users/rmvt/Desktop/repos/exercicio/app/src/main/java/io/exercis/ui/AnotherFragment.kt:41:9 - Signature=AnotherFragment.kt$AnotherFragment$// TODO: Use the ViewModel
+ForbiddenComment - [onActivityCreated] at /Users/rmvt/Desktop/repos/exercicio/app/src/main/java/io/exercis/ui/MainFragment.kt:41:9 - Signature=MainFragment.kt$MainFragment$// TODO: Use the ViewModel
+ForbiddenComment - [AnotherViewModel] at /Users/rmvt/Desktop/repos/exercicio/app/src/main/java/io/exercis/ui/AnotherViewModel.kt:6:5 - Signature=AnotherViewModel.kt$AnotherViewModel$// TODO: Implement the ViewModel
