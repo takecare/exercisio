@@ -6,10 +6,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.AbstractSavedStateViewModelFactory
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.savedstate.SavedStateRegistryOwner
 import io.exercis.R
 import io.exercis.databinding.FragmentMainBinding
+
+class MyFactory(
+    owner: SavedStateRegistryOwner,
+    defaultArgs: Bundle? = null
+) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel?> create(
+        key: String,
+        modelClass: Class<T>,
+        handle: SavedStateHandle
+    ): T {
+        return if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
+            MainViewModel()
+        } else {
+            throw IllegalStateException("")
+        } as T
+    }
+}
 
 class MainFragment : Fragment() {
 
@@ -18,7 +41,9 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentMainBinding
-    private lateinit var viewModel: MainViewModel
+
+    //    private lateinit var viewModel: MainViewModel
+    val viewModel: MainViewModel by viewModels { MyFactory(this) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,7 +65,8 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+//        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
     }
 }
