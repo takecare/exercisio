@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.savedstate.SavedStateRegistryOwner
 import io.exercis.R
@@ -42,7 +41,6 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
 
-    //    private lateinit var viewModel: MainViewModel
     val viewModel: MainViewModel by viewModels { MyFactory(this) }
 
     override fun onCreateView(
@@ -65,8 +63,6 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-//        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
     }
 }
