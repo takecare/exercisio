@@ -1,0 +1,9 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+apply from: loadConfig('kotlin')
+apply from: loadConfig('dagger')
+apply from: loadConfig('networking')
+
+//sourceCompatibility = "7" //JavaVersion.VERSION_1_8
+//targetCompatibility = "7"
