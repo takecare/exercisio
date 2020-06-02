@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.merge
+import javax.inject.Inject
 
 // https://proandroiddev.com/kotlin-flow-on-android-quick-guide-76667e872166
 // https://medium.com/androiddevelopers/rxjava-to-kotlin-coroutines-1204c896a700
@@ -66,4 +67,9 @@ internal class WorkoutsRepositoryImpl(
     }
 }
 
-internal typealias Mapper = (data: WorkoutDataModel) -> Workout
+//internal typealias Mapper = (data: WorkoutDataModel) -> Workout
+/*internal*/ class Mapper @Inject constructor() {
+    operator fun invoke(data: WorkoutDataModel): Workout {
+        return Workout(data.name, data.description, emptyList())
+    }
+}

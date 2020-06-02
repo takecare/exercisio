@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.*
 import androidx.savedstate.SavedStateRegistryOwner
+import io.exercis.workouts.WorkoutsComponentProvider
 import io.exercis.workouts.databinding.FragmentWorkoutsBinding
+import io.exercis.workouts.domain.GetWorkoutsUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.BroadcastChannel
@@ -16,6 +18,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class WorkoutsViewModelFactory(
     owner: SavedStateRegistryOwner,
@@ -42,6 +45,8 @@ class WorkoutsFragment : BaseFragment() {
     }
 
     private lateinit var binding: FragmentWorkoutsBinding
+    @Inject
+    lateinit var useCase: GetWorkoutsUseCase
 
     private val viewModel: WorkoutsViewModel by viewModels { WorkoutsViewModelFactory(this) }
 
@@ -66,6 +71,11 @@ class WorkoutsFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        (activity?.application as WorkoutsComponentProvider)
+            .provideWorkoutsComponent()
+            .inject(this)
+
 
         // expose flow of ui events to the view model
         viewModel.observe(events.asFlow())

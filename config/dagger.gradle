@@ -1,0 +1,13 @@
+apply plugin: 'kotlin-kapt'
+
+//android {
+//    kapt {
+//        // https://kotlinlang.org/docs/reference/kapt.html#non-existent-type-correction
+//        correctErrorTypes true
+//    }
+//}
+
+dependencies {
+    implementation "com.google.dagger:dagger:2.27"
+    /*annotationProcessor*/ kapt "com.google.dagger:dagger-compiler:2.27"
+}
