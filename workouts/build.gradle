@@ -9,3 +9,7 @@ apply from: loadConfig('navigation')
 apply from: loadConfig('room')
 apply from: loadConfig('android-test')
 apply from: loadConfig('test')
+
+dependencies {
+    implementation project(path: ':exercises')
+}

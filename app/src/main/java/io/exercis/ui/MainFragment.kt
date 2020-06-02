@@ -15,7 +15,7 @@ import androidx.savedstate.SavedStateRegistryOwner
 import io.exercis.R
 import io.exercis.databinding.FragmentMainBinding
 
-class MyFactory(
+class MainViewModelFactory(
     owner: SavedStateRegistryOwner,
     defaultArgs: Bundle? = null
 ) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
@@ -41,7 +41,7 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
 
-    val viewModel: MainViewModel by viewModels { MyFactory(this) }
+    val viewModel: MainViewModel by viewModels { MainViewModelFactory(this) }
 
     override fun onCreateView(
         inflater: LayoutInflater,

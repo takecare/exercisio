@@ -11,9 +11,6 @@ apply from: loadConfig('test')
 apply from: loadConfig('signing')
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.0"
-
     defaultConfig {
         applicationId "io.exercis"
     }

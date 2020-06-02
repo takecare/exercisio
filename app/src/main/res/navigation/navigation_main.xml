@@ -14,16 +14,6 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_main_to_another"
-            app:destination="@id/anotherFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/anotherFragment"
-        android:name="io.exercis.ui.AnotherFragment"
-        android:label="AnotherFragment"
-        tools:layout="@layout/fragment_another">
-        <action
-            android:id="@+id/action_another_to_dummy"
             app:destination="@id/dummyFragment" />
     </fragment>
 

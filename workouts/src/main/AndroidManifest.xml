@@ -1,2 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.exercis.workouts" />
+    package="io.exercis.workouts">
+
+    <application>
+        <activity android:name=".ui.DeleteActivity"></activity>
+    </application>
+
+</manifest>

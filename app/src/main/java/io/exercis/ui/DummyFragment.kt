@@ -15,9 +15,7 @@ class DummyFragment : Fragment() {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             DummyFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM, param1)
-                }
+                arguments = Bundle().apply { putString(ARG_PARAM, param1) }
             }
     }
 
@@ -26,9 +24,7 @@ class DummyFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param = it.getString(ARG_PARAM)
-        }
+        arguments?.let { param = it.getString(ARG_PARAM) }
     }
 
     override fun onCreateView(
@@ -40,9 +36,7 @@ class DummyFragment : Fragment() {
 
         param?.let { binding.dummyText.text = it }
 
-        binding.dummyButton.setOnClickListener {
-            //
-        }
+        binding.dummyButton.setOnClickListener { /* no-op */ }
 
         return binding.root;
     }
