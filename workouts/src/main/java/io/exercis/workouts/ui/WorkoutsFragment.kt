@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.*
@@ -45,6 +46,7 @@ class WorkoutsFragment : BaseFragment() {
     }
 
     private lateinit var binding: FragmentWorkoutsBinding
+
     @Inject
     lateinit var useCase: GetWorkoutsUseCase
 
@@ -76,7 +78,6 @@ class WorkoutsFragment : BaseFragment() {
             .provideWorkoutsComponent()
             .inject(this)
 
-
         // expose flow of ui events to the view model
         viewModel.observe(events.asFlow())
 
@@ -86,7 +87,17 @@ class WorkoutsFragment : BaseFragment() {
                 // TODO
             }
         })
+
+        viewModel.effects.observe(viewLifecycleOwner, Observer { effect ->
+            when (effect) {
+                //
+            }
+        })
     }
+}
+
+private fun TextView.render(state: State) {
+    text
 }
 
 fun View.onClick(channel: Channel<Event>, scope: CoroutineScope) {
@@ -95,11 +106,6 @@ fun View.onClick(channel: Channel<Event>, scope: CoroutineScope) {
 
 abstract class BaseFragment : Fragment() {
     val events = BroadcastChannel<Event>(1)
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //
-    }
 }
 
 @ExperimentalCoroutinesApi

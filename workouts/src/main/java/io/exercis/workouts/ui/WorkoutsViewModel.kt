@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.exercis.workouts.domain.GetWorkoutsUseCase
-import io.exercis.workouts.domain.model.Workout
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -18,8 +16,9 @@ class WorkoutsViewModel() : ViewModel() {
     private val _state = MutableLiveData<State>()
     val state: LiveData<State> get() = _state
 
+    // https://github.com/android/architecture-samples/blob/dev-todo-mvvm-live/todoapp/app/src/main/java/com/example/android/architecture/blueprints/todoapp/SingleLiveEvent.java
     private val _effect = MutableLiveData<Effect>()
-    val effect: LiveData<Effect> get() = _effect
+    val effects: LiveData<Effect> get() = _effect
 
     fun observe(events: Flow<Event>) {
         viewModelScope.launch {

@@ -2,9 +2,8 @@ package io.exercis.workouts.data
 
 import dagger.Module
 import dagger.Provides
-import io.exercic.base.ActivityScope
+import io.exercic.base.di.ActivityScope
 import io.exercis.workouts.domain.WorkoutsRepository
-import io.exercis.workouts.domain.model.Workout
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import javax.inject.Named

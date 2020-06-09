@@ -1,4 +1,4 @@
-package io.exercic.base
+package io.exercic.base.di
 
 import javax.inject.Scope
 
