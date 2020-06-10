@@ -12,6 +12,8 @@ interface ViewModelAssistedFactory<T : ViewModel> {
     fun create(handle: SavedStateHandle): T
 }
 
+// https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate
+
 class GenericSavedStateViewModelFactory<out V : ViewModel>(
     private val viewModelFactory: ViewModelAssistedFactory<V>,
     owner: SavedStateRegistryOwner,
@@ -25,24 +27,5 @@ class GenericSavedStateViewModelFactory<out V : ViewModel>(
         handle: SavedStateHandle
     ): T {
         return viewModelFactory.create(handle) as T
-    }
-}
-
-class DelegateSavedStateRegistryOwner : SavedStateRegistryOwner {
-
-    var target: SavedStateRegistryOwner? = null
-
-    override fun getLifecycle(): Lifecycle {
-        if (target == null) {
-            throw RuntimeException("getLifecycle(): target cannot be null")
-        }
-        return target!!.lifecycle
-    }
-
-    override fun getSavedStateRegistry(): SavedStateRegistry {
-        if (target == null) {
-            throw RuntimeException("getSavedStateRegistry(): target cannot be null")
-        }
-        return target!!.savedStateRegistry
     }
 }
