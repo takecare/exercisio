@@ -6,9 +6,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.launch
 
-// generics for event or marker interface?
-interface Event
-
 // rename to EventfulFragment?
 abstract class BaseFragment : Fragment() {
     val events = BroadcastChannel<Event>(1)
