@@ -44,10 +44,4 @@ class DataModule {
     fun provideRemoteDataSource(): WorkoutsDataSource {
         return NetworkWorkoutsDataSource()
     }
-
-//    @Provides
-//    @ActivityScope
-//    fun provideMapper(): Mapper {
-//        return { } // TODO
-//    }
 }

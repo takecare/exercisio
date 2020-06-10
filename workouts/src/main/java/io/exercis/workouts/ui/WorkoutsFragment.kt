@@ -29,18 +29,8 @@ class WorkoutsFragment : BaseFragment() {
 
     private lateinit var binding: FragmentWorkoutsBinding
 
-//    @Inject
-//    @Named("workouts")
-//    lateinit var owner: DelegateSavedStateRegistryOwner
-
     @Inject
     lateinit var viewModelFactory: WorkoutsViewModelFactory
-
-//    @Inject
-//    @Named("workouts")
-//    lateinit var savedStateViewModelFactory: GenericSavedStateViewModelFactory<WorkoutsViewModel>
-
-//    private val viewModel: WorkoutsViewModel by viewModels { savedStateViewModelFactory }
 
     private val viewModel: WorkoutsViewModel by viewModels {
         GenericSavedStateViewModelFactory(viewModelFactory, this)
@@ -51,15 +41,6 @@ class WorkoutsFragment : BaseFragment() {
         (activity?.application as WorkoutsComponentProvider)
             .provideWorkoutsComponent()
             .inject(this)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        owner.target = this
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
     }
 
     override fun onCreateView(
