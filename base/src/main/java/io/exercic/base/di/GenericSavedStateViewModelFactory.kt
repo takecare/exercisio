@@ -17,6 +17,7 @@ class GenericSavedStateViewModelFactory<out V : ViewModel>(
     owner: SavedStateRegistryOwner,
     defaultArgs: Bundle? = null
 ) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
+
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(
         key: String,
@@ -28,6 +29,7 @@ class GenericSavedStateViewModelFactory<out V : ViewModel>(
 }
 
 class DelegateSavedStateRegistryOwner : SavedStateRegistryOwner {
+
     var target: SavedStateRegistryOwner? = null
 
     override fun getLifecycle(): Lifecycle {
@@ -42,20 +44,5 @@ class DelegateSavedStateRegistryOwner : SavedStateRegistryOwner {
             throw RuntimeException("getSavedStateRegistry(): target cannot be null")
         }
         return target!!.savedStateRegistry
-    }
-}
-
-class _GenericSavedStateViewModelFactory<out V : ViewModel>(
-    private val viewModelFactory: ViewModelAssistedFactory<V>,
-    owner: DelegateSavedStateRegistryOwner,
-    defaultArgs: Bundle? = null
-) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(
-        key: String,
-        modelClass: Class<T>,
-        handle: SavedStateHandle
-    ): T {
-        return viewModelFactory.create(handle) as T
     }
 }
