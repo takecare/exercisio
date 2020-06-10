@@ -6,22 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import io.exercic.base.di.GenericSavedStateViewModelFactory
+import io.exercic.base.ui.BaseFragment
 import io.exercis.workouts.WorkoutsComponentProvider
 import io.exercis.workouts.databinding.FragmentWorkoutsBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.channels.BroadcastChannel
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class WorkoutsFragment : BaseFragment() {
+class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
 
     companion object {
         fun newInstance() = WorkoutsFragment()
@@ -50,7 +43,7 @@ class WorkoutsFragment : BaseFragment() {
     ): View? {
         binding = FragmentWorkoutsBinding.inflate(layoutInflater, container, false)
 
-        binding.workoutsButton.setOnClickListener { emit(WorkoutsEvent.ButtonClicked) }
+        binding.workoutsButton.clicksEmit(WorkoutsEvent.ButtonClicked)
 
         return binding.root
     }
@@ -61,7 +54,7 @@ class WorkoutsFragment : BaseFragment() {
         emitWhenStarted(WorkoutsEvent.Displayed) // is this really needed?
 
         // expose flow of ui events to the view model
-        viewModel.observe(events.asFlow())
+        viewModel.observe(events)
 
         // observe the state the view model outputs
         viewModel.observeState(viewLifecycleOwner, Observer { state ->
@@ -93,25 +86,3 @@ class WorkoutsFragment : BaseFragment() {
         })
     }
 }
-
-fun View.onClick(channel: Channel<WorkoutsEvent>, scope: CoroutineScope) {
-    scope.launch { channel.send(WorkoutsEvent.ButtonClicked) }
-}
-
-// rename to EventfulFragment?
-abstract class BaseFragment : Fragment() {
-    // see also https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.channels/-conflated-broadcast-channel/
-    // https://stackoverflow.com/questions/56111292/publishsubject-with-kotlin-coroutines-flow
-    val events = BroadcastChannel<WorkoutsEvent>(1)
-}
-
-@OptIn(ExperimentalCoroutinesApi::class)
-fun BaseFragment.emit(event: WorkoutsEvent) = lifecycleScope.launch { events.send(event) }
-
-@OptIn(ExperimentalCoroutinesApi::class)
-fun BaseFragment.emitWhenStarted(event: WorkoutsEvent) =
-    lifecycleScope.launchWhenStarted { events.send(event) }
-
-@OptIn(ExperimentalCoroutinesApi::class)
-fun BroadcastChannel<WorkoutsEvent>.emit(event: WorkoutsEvent, scope: CoroutineScope) =
-    scope.launch { send(event) }

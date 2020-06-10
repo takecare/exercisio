@@ -19,6 +19,7 @@ import javax.inject.Inject
 // using data sources this way (local and remote) implies usage of streams (i.e. reactive
 // programming). this brings about a set of issues, namely correctly merging the two streams (local
 // and remote)
+
 interface WorkoutsDataSource {
     //
     suspend fun getData(): List<WorkoutDataModel>

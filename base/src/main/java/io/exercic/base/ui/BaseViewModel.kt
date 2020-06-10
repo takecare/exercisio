@@ -1,7 +1,9 @@
 package io.exercic.base.ui
 
 import androidx.lifecycle.*
+import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -13,8 +15,7 @@ interface Event
 abstract class BaseViewModel<S : State, E : Effect, Ev : Event>(
     private val initialState: S,
     private val handle: SavedStateHandle
-) :
-    ViewModel() {
+) : ViewModel() {
 
     private val _state = MutableLiveData<S>().apply {
         postValue(initialState)
@@ -33,6 +34,10 @@ abstract class BaseViewModel<S : State, E : Effect, Ev : Event>(
 
     fun observeEffects(owner: LifecycleOwner, observer: Observer<E>) {
         _effects.observe(owner, observer)
+    }
+
+    fun observe(events: BroadcastChannel<Ev>) {
+        observe(events.asFlow())
     }
 
     fun observe(events: Flow<Ev>) {
