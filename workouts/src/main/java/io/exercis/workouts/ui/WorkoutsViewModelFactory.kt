@@ -27,8 +27,11 @@ import javax.inject.Inject
 //    }
 //}
 
-class WorkoutsViewModelFactory @Inject constructor(private val getWorkouts: GetWorkoutsUseCase) :
-    ViewModelAssistedFactory<WorkoutsViewModel> {
-    override fun create(handle: SavedStateHandle) =
-        WorkoutsViewModel(getWorkouts, handle)
+class WorkoutsViewModelFactory @Inject constructor(
+    private val getWorkouts: GetWorkoutsUseCase
+) : ViewModelAssistedFactory<WorkoutsViewModel> {
+
+    override fun create(handle: SavedStateHandle): WorkoutsViewModel {
+        return WorkoutsViewModel(getWorkouts, handle)
+    }
 }
