@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 apply from: loadConfig('kotlin')
-apply from: loadConfig('dagger')
-apply from: loadConfig('networking')
 apply from: loadConfig('android')
+apply from: loadConfig('dagger')
 apply from: loadConfig('viewmodel')
+apply from: loadConfig('networking')

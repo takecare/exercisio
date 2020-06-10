@@ -14,3 +14,5 @@ data class Workout(
     val description: String?,
     val exercises: List<WorkoutExercise>
 )
+
+typealias Workouts = List<Workout>

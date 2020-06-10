@@ -1,12 +1,13 @@
 package io.exercis.workouts
 
 import dagger.Subcomponent
-import io.exercic.base.di.ActivityScope
+import io.exercic.base.di.FragmentScope
 import io.exercis.workouts.domain.DomainModule
+import io.exercis.workouts.ui.PresentationModule
 import io.exercis.workouts.ui.WorkoutsFragment
 
-@ActivityScope
-@Subcomponent(modules = [DomainModule::class])
+@FragmentScope
+@Subcomponent(modules = [DomainModule::class, PresentationModule::class])
 interface WorkoutsComponent {
 
     @Subcomponent.Factory

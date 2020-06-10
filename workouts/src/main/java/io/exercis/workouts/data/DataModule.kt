@@ -2,7 +2,7 @@ package io.exercis.workouts.data
 
 import dagger.Module
 import dagger.Provides
-import io.exercic.base.di.ActivityScope
+import io.exercic.base.di.FragmentScope
 import io.exercis.workouts.domain.WorkoutsRepository
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -12,7 +12,7 @@ import javax.inject.Named
 class DataModule {
 
     @Provides
-    @ActivityScope
+    @FragmentScope
     fun provideRetrofit(client: OkHttpClient): Retrofit {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.github.com/")
@@ -21,15 +21,9 @@ class DataModule {
         return retrofit
     }
 
-//    @Provides
-//    @ActivityScope
-//    fun provideLoginService(retrofit: Retrofit): LoginService {
-//        return retrofit.create(LoginService::class.java)
-//    }
-
-    @Provides // @Binds
-    @ActivityScope
-    fun bindUserRepository(
+    @Provides
+    @FragmentScope
+    fun bindWorkoutsRepository(
         @Named("remote") networkWorkoutsDataSource: WorkoutsDataSource,
         @Named("local") localWorkoutsDataSource: WorkoutsDataSource,
         mapper: Mapper
@@ -39,14 +33,14 @@ class DataModule {
 
     @Provides
     @Named("local") // TODO custom annotation
-    @ActivityScope
+    @FragmentScope
     fun provideLocalDataSource(): WorkoutsDataSource {
         return LocalWorkoutsDataSource()
     }
 
     @Provides
     @Named("remote")
-    @ActivityScope
+    @FragmentScope
     fun provideRemoteDataSource(): WorkoutsDataSource {
         return NetworkWorkoutsDataSource()
     }
