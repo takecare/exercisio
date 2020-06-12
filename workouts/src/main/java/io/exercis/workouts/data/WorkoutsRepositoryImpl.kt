@@ -31,7 +31,7 @@ class NetworkWorkoutsDataSource : WorkoutsDataSource {
     override suspend fun getData(): List<WorkoutDataModel> {
         return coroutineScope {
             delay(20L)
-            emptyList<WorkoutDataModel>()
+            emptyList()
         }
     }
 }

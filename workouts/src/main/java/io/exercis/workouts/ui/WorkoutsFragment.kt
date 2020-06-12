@@ -19,6 +19,13 @@ import io.exercis.workouts.domain.model.Workout
 import io.exercis.workouts.domain.model.Workouts
 import javax.inject.Inject
 
+// this fragment should be able to support:
+// 1. empty list of workouts
+// 2. list of workouts
+// 3. create new workout
+// 4. navigate to workout (list of exercises)
+// 5. change workout details (eg. name) (still not sure about this one)
+
 class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
 
     companion object {
