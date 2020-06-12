@@ -1,4 +1,4 @@
-package io.exercic.exercises.data.model
+package io.exercis.exercises.data.model
 
 data class ExerciseDataModel(
     val id: String, // UUID?

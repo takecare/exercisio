@@ -1,11 +1,11 @@
-package io.exercic.exercises.ui
+package io.exercis.exercises.ui
 
 import androidx.lifecycle.SavedStateHandle
 import io.exercic.base.ui.BaseViewModel
 import io.exercic.base.ui.Effect
 import io.exercic.base.ui.Event
 import io.exercic.base.ui.State
-import io.exercic.exercises.domain.Exercise
+import io.exercis.exercises.domain.Exercise
 
 
 class ExerciseViewModel constructor(

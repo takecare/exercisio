@@ -1,4 +1,4 @@
-package io.exercic.exercises.data
+package io.exercis.exercises.data
 
 import dagger.Module
 import dagger.Provides
@@ -23,10 +23,12 @@ class DataModule {
     @Provides
     @Named("local") // TODO custom annotation
     @FragmentScope
-    fun provideLocalDataSource() = LocalExercisesDataSource()
+    fun provideLocalDataSource() =
+        LocalExercisesDataSource()
 
     @Provides
     @Named("remote")
     @FragmentScope
-    fun provideRemoteDataSource() = NetworkExercisesDataSource()
+    fun provideRemoteDataSource() =
+        NetworkExercisesDataSource()
 }

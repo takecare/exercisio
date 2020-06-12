@@ -1,6 +1,6 @@
 package io.exercis.workouts.data.model
 
-import io.exercic.exercises.data.model.ExerciseDataModel
+import io.exercis.exercises.data.model.ExerciseDataModel
 
 data class WorkoutExerciseDataModel(
     val exercise: ExerciseDataModel,

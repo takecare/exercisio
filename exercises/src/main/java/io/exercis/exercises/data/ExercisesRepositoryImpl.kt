@@ -1,8 +1,8 @@
-package io.exercic.exercises.data
+package io.exercis.exercises.data
 
-import io.exercic.exercises.data.model.ExerciseDataModel
-import io.exercic.exercises.domain.Exercise
-import io.exercic.exercises.domain.ExercisesRepository
+import io.exercis.exercises.data.model.ExerciseDataModel
+import io.exercis.exercises.domain.Exercise
+import io.exercis.exercises.domain.ExercisesRepository
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +17,8 @@ interface ExercisesDataSource {
     suspend fun getData(): List<ExerciseDataModel>
 }
 
-class NetworkExercisesDataSource : ExercisesDataSource {
+class NetworkExercisesDataSource :
+    ExercisesDataSource {
     //
     override suspend fun getData(): List<ExerciseDataModel> {
         return coroutineScope {

@@ -1,6 +1,6 @@
 package io.exercis.workouts.domain.model
 
-import io.exercic.exercises.domain.Exercise
+import io.exercis.exercises.domain.Exercise
 import java.time.Duration
 
 data class WorkoutExercise(

@@ -1,7 +1,7 @@
-package io.exercic.exercises.domain
+package io.exercis.exercises.domain
 
 import dagger.Module
-import io.exercic.exercises.data.DataModule
+import io.exercis.exercises.data.DataModule
 
 @Module(includes = [DataModule::class])
 class DomainModule {

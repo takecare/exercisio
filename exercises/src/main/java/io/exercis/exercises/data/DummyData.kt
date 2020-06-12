@@ -1,6 +1,6 @@
-package io.exercic.exercises.data
+package io.exercis.exercises.data
 
-import io.exercic.exercises.data.model.ExerciseDataModel
+import io.exercis.exercises.data.model.ExerciseDataModel
 
 class DummyData {
     companion object {

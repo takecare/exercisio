@@ -1,9 +1,9 @@
-package io.exercic.exercises
+package io.exercis.exercises
 
 import dagger.Subcomponent
 import io.exercic.base.di.FragmentScope
-import io.exercic.exercises.domain.DomainModule
-import io.exercic.exercises.ui.ExercisesFragment
+import io.exercis.exercises.domain.DomainModule
+import io.exercis.exercises.ui.ExercisesFragment
 
 @FragmentScope
 @Subcomponent(modules = [DomainModule::class])

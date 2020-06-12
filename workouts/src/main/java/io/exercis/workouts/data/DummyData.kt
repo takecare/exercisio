@@ -1,6 +1,6 @@
 package io.exercis.workouts.data
 
-import io.exercic.exercises.data.DummyData.Companion.exercises
+import io.exercis.exercises.data.DummyData.Companion.exercises
 import io.exercis.workouts.data.model.WorkoutDataModel
 import io.exercis.workouts.data.model.WorkoutExerciseDataModel
 

@@ -1,4 +1,4 @@
-package io.exercic.exercises.ui
+package io.exercis.exercises.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import io.exercic.base.ui.BaseFragment
-import io.exercic.exercises.ExercisesComponentProvider
+import io.exercis.exercises.ExercisesComponentProvider
 import io.exercic.exercises.databinding.FragmentExercisesBinding
 
 // this fragment should be able to support:

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/exercisesFragment"
-        android:name="io.exercic.exercises.ui.ExercisesFragment"
+        android:name="io.exercis.exercises.ui.ExercisesFragment"
         android:label="ExercisesFragment"
         tools:layout="@layout/fragment_exercises">
         <argument android:name="param1" /> <!-- TODO proper param -->

@@ -1,10 +1,11 @@
 package io.exercis
 
 import android.app.Application
-import io.exercic.exercises.ExercisesComponentProvider
+import io.exercis.exercises.ExercisesComponentProvider
 import io.exercis.workouts.WorkoutsComponentProvider
 
-class ExecisioApplication : Application(), WorkoutsComponentProvider, ExercisesComponentProvider {
+class ExecisioApplication : Application(), WorkoutsComponentProvider,
+    ExercisesComponentProvider {
     lateinit var applicationComponent: AppComponent
 
     override fun onCreate() {

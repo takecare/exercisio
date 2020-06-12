@@ -1,4 +1,4 @@
-package io.exercic.exercises.domain
+package io.exercis.exercises.domain
 
 import kotlinx.coroutines.flow.Flow
 
