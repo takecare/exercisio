@@ -103,7 +103,7 @@ class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
                     .show()
                 is WorkoutsEffect.NavigateToWorkout -> {
                     val workout = effect.workout
-                    findNavController().navigate(Uri.parse("exercisio://workouts"))
+                    findNavController().navigate(Uri.parse("exercisio://exercises"))
                 }
             }
         })
