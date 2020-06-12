@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.merge
 import javax.inject.Inject
+import javax.inject.Named
 
 interface ExercisesDataSource {
     //
@@ -21,7 +22,7 @@ class NetworkExercisesDataSource : ExercisesDataSource {
     override suspend fun getData(): List<ExerciseDataModel> {
         return coroutineScope {
             delay(200L)
-            emptyList()
+            emptyList<ExerciseDataModel>()
         }
     }
 }
@@ -36,9 +37,9 @@ class LocalExercisesDataSource : ExercisesDataSource {
     }
 }
 
-class ExercisesRepositoryImpl(
-    private val networkSource: ExercisesDataSource,
-    private val localSource: ExercisesDataSource,
+class ExercisesRepositoryImpl @Inject constructor(
+    @Named("remote") private val networkSource: ExercisesDataSource,
+    @Named("local") private val localSource: ExercisesDataSource,
     private val mapper: Mapper
 ) : ExercisesRepository {
 
