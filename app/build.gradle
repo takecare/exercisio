@@ -28,7 +28,9 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':workouts')
     implementation project(path: ':base')
+    implementation project(path: ':workouts')
+    implementation project(path: ':exercises')
+
 //    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
