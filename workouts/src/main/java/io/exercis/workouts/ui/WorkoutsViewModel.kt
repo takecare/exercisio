@@ -7,6 +7,7 @@ import io.exercic.base.ui.Effect
 import io.exercic.base.ui.Event
 import io.exercic.base.ui.State
 import io.exercis.workouts.domain.GetWorkoutsUseCase
+import io.exercis.workouts.domain.model.Workout
 import io.exercis.workouts.domain.model.Workouts
 import kotlinx.coroutines.launch
 
@@ -23,7 +24,9 @@ class WorkoutsViewModel constructor(
 
     override fun handleEvent(event: WorkoutsEvent) {
         when (event) {
-            is WorkoutsEvent.ButtonClicked,
+            is WorkoutsEvent.WorkoutClicked -> {
+                //
+            }
             is WorkoutsEvent.Displayed -> viewModelScope.launch {
                 loadData()
             }
@@ -47,7 +50,7 @@ class WorkoutsViewModel constructor(
 
 sealed class WorkoutsEvent : Event {
     object Displayed : WorkoutsEvent()
-    object ButtonClicked : WorkoutsEvent()
+    data class WorkoutClicked(val workout: Workout) : WorkoutsEvent()
 }
 
 sealed class WorkoutsEffect : Effect {

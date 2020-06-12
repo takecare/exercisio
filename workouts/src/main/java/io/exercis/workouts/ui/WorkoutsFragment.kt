@@ -8,10 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import io.exercic.base.di.GenericSavedStateViewModelFactory
 import io.exercic.base.ui.BaseFragment
 import io.exercis.workouts.WorkoutsComponentProvider
 import io.exercis.workouts.databinding.FragmentWorkoutsBinding
+import io.exercis.workouts.databinding.RowWorkoutBinding
+import io.exercis.workouts.domain.model.Workout
+import io.exercis.workouts.domain.model.Workouts
 import javax.inject.Inject
 
 class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
@@ -43,7 +48,7 @@ class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
     ): View? {
         binding = FragmentWorkoutsBinding.inflate(layoutInflater, container, false)
 
-        binding.workoutsButton.clicksEmit(WorkoutsEvent.ButtonClicked)
+        binding.workoutsButton.clicksEmit(WorkoutsEvent.Displayed)
 
         return binding.root
     }
@@ -64,8 +69,13 @@ class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
                         .show()
                 }
                 state.hasData -> {
-                    val workouts = state?.data
-                    println(workouts)
+                    val workouts = state?.data ?: emptyList()
+                    with(binding.recyclerView) {
+                        layoutManager = LinearLayoutManager(context)
+                        adapter = WorkoutsRecyclerAdapter(workouts) {
+                            emit(WorkoutsEvent.WorkoutClicked(it))
+                        }
+                    }
                 }
                 state.hasError -> {
                     Toast.makeText(context, "error", Toast.LENGTH_SHORT)
@@ -84,5 +94,48 @@ class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
                     .show()
             }
         })
+    }
+}
+
+// https://developer.android.com/guide/topics/ui/layout/recyclerview
+
+class WorkoutsViewHolder(
+    private val binding: RowWorkoutBinding,
+    private val listener: (Workout) -> Unit,
+    view: View
+) : RecyclerView.ViewHolder(view) {
+
+    fun bind(workout: Workout) {
+        binding.mainText.text = workout.name
+        binding.secondaryText.text = workout.description
+        itemView.setOnClickListener { listener(workout) }
+    }
+}
+
+class WorkoutsRecyclerAdapter(private val listener: (Workout) -> Unit) :
+    RecyclerView.Adapter<WorkoutsViewHolder>() {
+
+    var data: Workouts = emptyList()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    constructor(data: Workouts, listener: (Workout) -> Unit) : this(listener) {
+        this.data = data
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkoutsViewHolder {
+        val binding = RowWorkoutBinding.inflate(LayoutInflater.from(parent.context))
+        return WorkoutsViewHolder(binding, listener, binding.root)
+    }
+
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
+    override fun onBindViewHolder(holder: WorkoutsViewHolder, position: Int) {
+        val workout = data[position]
+        holder.bind(workout)
     }
 }
