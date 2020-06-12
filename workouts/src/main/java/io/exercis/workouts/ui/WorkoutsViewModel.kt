@@ -25,7 +25,7 @@ class WorkoutsViewModel constructor(
     override fun handleEvent(event: WorkoutsEvent) {
         when (event) {
             is WorkoutsEvent.WorkoutClicked -> {
-                //
+                emit(WorkoutsEffect.NavigateToWorkout(event.workout))
             }
             is WorkoutsEvent.Displayed -> viewModelScope.launch {
                 loadData()
@@ -55,6 +55,9 @@ sealed class WorkoutsEvent : Event {
 
 sealed class WorkoutsEffect : Effect {
     // for toasts, navigation, etc. (pushed from view model to view)
+
+    data class NavigateToWorkout(val workout: Workout) : WorkoutsEffect()
+
     data class Toast(val message: String) : WorkoutsEffect()
 }
 
