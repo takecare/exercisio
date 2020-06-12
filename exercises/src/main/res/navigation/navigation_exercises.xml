@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/exercisesNavigation"
+    tools:ignore="InvalidNavigation,UnusedNavigation">
+
+    <fragment
+        android:id="@+id/exercisesFragment"
+        android:name="io.exercic.exercises.ui.ExercisesFragment"
+        android:label="ExercisesFragment"
+        tools:layout="@layout/fragment_exercises">
+        <argument android:name="param1" /> <!-- TODO proper param -->
+        <deepLink app:uri="exercisio://exercises" />
+    </fragment>
+
+</navigation>
