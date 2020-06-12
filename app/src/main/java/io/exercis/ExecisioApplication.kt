@@ -1,10 +1,10 @@
 package io.exercis
 
 import android.app.Application
-import io.exercis.workouts.WorkoutsComponent
+import io.exercic.exercises.ExercisesComponentProvider
 import io.exercis.workouts.WorkoutsComponentProvider
 
-class ExecisioApplication : Application(), WorkoutsComponentProvider {
+class ExecisioApplication : Application(), WorkoutsComponentProvider, ExercisesComponentProvider {
     lateinit var applicationComponent: AppComponent
 
     override fun onCreate() {
@@ -13,8 +13,10 @@ class ExecisioApplication : Application(), WorkoutsComponentProvider {
             .build()
     }
 
-    override fun provideWorkoutsComponent(): WorkoutsComponent {
-        return applicationComponent.workoutsComponentFactory().create()
-    }
+    override fun provideWorkoutsComponent() =
+        applicationComponent.workoutsComponentFactory().create()
+
+    override fun provideExercisesComponent() =
+        applicationComponent.exercisesComponentFactory().create()
 }
 

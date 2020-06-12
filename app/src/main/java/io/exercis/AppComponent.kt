@@ -3,6 +3,7 @@ package io.exercis
 import dagger.Component
 import dagger.Module
 import io.exercic.base.NetworkModule
+import io.exercic.exercises.ExercisesComponent
 import io.exercis.workouts.WorkoutsComponent
 import javax.inject.Singleton
 
@@ -12,8 +13,10 @@ interface AppComponent {
 
     fun workoutsComponentFactory(): WorkoutsComponent.Factory
 
+    fun exercisesComponentFactory(): ExercisesComponent.Factory
+
 //    fun injectIntoMainActivity(activity: MainActivity)
 }
 
-@Module(subcomponents = [WorkoutsComponent::class])
+@Module(subcomponents = [WorkoutsComponent::class, ExercisesComponent::class])
 class SubcomponentsModule {}
