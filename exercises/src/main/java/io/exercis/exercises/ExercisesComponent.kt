@@ -1,7 +1,7 @@
 package io.exercis.exercises
 
 import dagger.Subcomponent
-import io.exercic.base.di.FragmentScope
+import io.exercis.base.di.FragmentScope
 import io.exercis.exercises.domain.DomainModule
 import io.exercis.exercises.ui.ExercisesFragment
 

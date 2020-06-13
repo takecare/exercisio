@@ -2,7 +2,7 @@ package io.exercis
 
 import dagger.Component
 import dagger.Module
-import io.exercic.base.NetworkModule
+import io.exercis.base.NetworkModule
 import io.exercis.exercises.ExercisesComponent
 import io.exercis.workouts.WorkoutsComponent
 import javax.inject.Singleton

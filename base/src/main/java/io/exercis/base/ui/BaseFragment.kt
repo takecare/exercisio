@@ -1,4 +1,4 @@
-package io.exercic.base.ui
+package io.exercis.base.ui
 
 import android.view.View
 import androidx.fragment.app.Fragment

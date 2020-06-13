@@ -1,4 +1,4 @@
-package io.exercic.base
+package io.exercis.base
 
 import dagger.Module
 import dagger.Provides

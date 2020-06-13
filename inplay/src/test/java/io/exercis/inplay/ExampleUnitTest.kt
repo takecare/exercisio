@@ -1,4 +1,4 @@
-package io.exercic.inplay
+package io.exercis.inplay
 
 import org.junit.Test
 

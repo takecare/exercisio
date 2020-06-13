@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import io.exercic.base.ui.BaseFragment
+import io.exercis.base.ui.BaseFragment
+import io.exercis.exercises.databinding.FragmentExercisesBinding
 import io.exercis.exercises.ExercisesComponentProvider
-import io.exercic.exercises.databinding.FragmentExercisesBinding
 
 // this fragment should be able to support:
 // 1. empty list of exercises

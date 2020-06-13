@@ -1,4 +1,4 @@
-package io.exercic.exercises
+package io.exercis.inplay
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("io.exercic.exercises.test", appContext.packageName)
+        assertEquals("io.exercic.inplay.test", appContext.packageName)
     }
 }

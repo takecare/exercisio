@@ -1,7 +1,7 @@
-package io.exercic.base.ui
+package io.exercis.base.ui
 
 import androidx.lifecycle.*
-import io.exercic.base.di.ViewModelAssistedFactory
+import io.exercis.base.di.ViewModelAssistedFactory
 import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow

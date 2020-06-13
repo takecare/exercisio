@@ -2,10 +2,10 @@ package io.exercis.workouts.ui
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import io.exercic.base.ui.BaseViewModel
-import io.exercic.base.ui.Effect
-import io.exercic.base.ui.Event
-import io.exercic.base.ui.State
+import io.exercis.base.ui.BaseViewModel
+import io.exercis.base.ui.Effect
+import io.exercis.base.ui.Event
+import io.exercis.base.ui.State
 import io.exercis.workouts.domain.GetWorkoutsUseCase
 import io.exercis.workouts.domain.model.Workout
 import io.exercis.workouts.domain.model.Workouts

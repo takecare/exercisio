@@ -1,4 +1,4 @@
-package io.exercic.base.di
+package io.exercis.base.di
 
 import android.os.Bundle
 import androidx.lifecycle.AbstractSavedStateViewModelFactory

@@ -12,8 +12,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.exercic.base.di.GenericSavedStateViewModelFactory
-import io.exercic.base.ui.BaseFragment
+import io.exercis.base.di.GenericSavedStateViewModelFactory
+import io.exercis.base.ui.BaseFragment
 import io.exercis.workouts.WorkoutsComponentProvider
 import io.exercis.workouts.databinding.FragmentWorkoutsBinding
 import io.exercis.workouts.databinding.RowWorkoutBinding
@@ -40,7 +40,10 @@ class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
     lateinit var viewModelFactory: WorkoutsViewModelFactory
 
     private val viewModel: WorkoutsViewModel by viewModels {
-        GenericSavedStateViewModelFactory(viewModelFactory, this)
+        GenericSavedStateViewModelFactory(
+            viewModelFactory,
+            this
+        )
     }
 
     override fun onAttach(context: Context) {

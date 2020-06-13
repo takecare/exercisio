@@ -1,7 +1,7 @@
 package io.exercis.workouts.ui
 
 import androidx.lifecycle.SavedStateHandle
-import io.exercic.base.di.ViewModelAssistedFactory
+import io.exercis.base.di.ViewModelAssistedFactory
 import io.exercis.workouts.domain.GetWorkoutsUseCase
 import javax.inject.Inject
 

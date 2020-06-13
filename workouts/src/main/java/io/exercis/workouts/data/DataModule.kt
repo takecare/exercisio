@@ -2,7 +2,7 @@ package io.exercis.workouts.data
 
 import dagger.Module
 import dagger.Provides
-import io.exercic.base.di.FragmentScope
+import io.exercis.base.di.FragmentScope
 import io.exercis.workouts.domain.WorkoutsRepository
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
