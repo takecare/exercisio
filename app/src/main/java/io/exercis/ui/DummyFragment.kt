@@ -1,10 +1,12 @@
 package io.exercis.ui
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import io.exercis.databinding.FragmentDummyBinding
 
 const val ARG_PARAM = "param"
@@ -36,7 +38,9 @@ class DummyFragment : Fragment() {
 
         param?.let { binding.dummyText.text = it }
 
-        binding.dummyButton.setOnClickListener { /* no-op */ }
+        binding.dummyButton.setOnClickListener {
+            findNavController().navigate(Uri.parse("exercisio://exercises"))
+        }
 
         return binding.root;
     }
