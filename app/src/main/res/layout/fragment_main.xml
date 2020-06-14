@@ -1,28 +1,38 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context="io.exercis.io.exercis.ui.MainFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="io.exercis.ui.MainFragment">
 
-  <Button
-    android:id="@+id/mainButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/app_name"
-    app:layout_constraintBottom_toTopOf="@+id/otherButton"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/mainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dummy"
+        app:layout_constraintBottom_toTopOf="@+id/workoutsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <Button
-    android:id="@+id/otherButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="workouts"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/mainButton" />
+    <Button
+        android:id="@+id/workoutsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="workouts"
+        app:layout_constraintBottom_toBottomOf="@+id/exercisesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainButton" />
+
+    <Button
+        android:id="@+id/exercisesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="exercises"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workoutsButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

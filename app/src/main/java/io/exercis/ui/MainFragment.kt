@@ -35,10 +35,6 @@ class MainViewModelFactory(
 
 class MainFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
     private lateinit var binding: FragmentMainBinding
 
     val viewModel: MainViewModel by viewModels { MainViewModelFactory(this) }
@@ -54,7 +50,10 @@ class MainFragment : Fragment() {
         binding.mainButton.setOnClickListener {
             findNavController().navigate(R.id.action_main_to_another)
         }
-        binding.otherButton.setOnClickListener {
+        binding.exercisesButton.setOnClickListener {
+            findNavController().navigate(Uri.parse("exercisio://exercises"))
+        }
+        binding.workoutsButton.setOnClickListener {
             findNavController().navigate(Uri.parse("exercisio://workouts"))
         }
 
