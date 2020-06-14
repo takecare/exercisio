@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+            <nav-graph android:value="@navigation/navigation_main" />
+            <nav-graph android:value="@navigation/navigation_exercises" />
+            <nav-graph android:value="@navigation/navigation_workouts" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
