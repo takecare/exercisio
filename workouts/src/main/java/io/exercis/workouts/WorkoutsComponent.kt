@@ -4,6 +4,7 @@ import dagger.Subcomponent
 import io.exercis.base.di.FragmentScope
 import io.exercis.workouts.domain.DomainModule
 import io.exercis.workouts.ui.PresentationModule
+import io.exercis.workouts.ui.WorkoutDetailsFragment
 import io.exercis.workouts.ui.WorkoutsFragment
 
 @FragmentScope
@@ -16,6 +17,7 @@ interface WorkoutsComponent {
     }
 
     fun inject(fragment: WorkoutsFragment)
+    fun inject(fragment: WorkoutDetailsFragment)
 }
 
 interface WorkoutsComponentProvider {

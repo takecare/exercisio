@@ -8,7 +8,6 @@ import io.exercis.base.ui.Event
 import io.exercis.base.ui.State
 import io.exercis.workouts.domain.GetWorkoutsUseCase
 import io.exercis.workouts.domain.model.Workout
-import io.exercis.workouts.domain.model.Workouts
 import kotlinx.coroutines.launch
 
 // https://medium.com/androiddevelopers/viewmodels-and-livedata-patterns-antipatterns-21efaef74a54
@@ -64,7 +63,7 @@ sealed class WorkoutsEffect : Effect {
 data class WorkoutsState(
     val isLoading: Boolean = false,
     val hasError: Boolean = false,
-    val data: Workouts? = null
+    val data: List<Workout>? = null
 ) : State {
     val hasData: Boolean get() = data != null
 }

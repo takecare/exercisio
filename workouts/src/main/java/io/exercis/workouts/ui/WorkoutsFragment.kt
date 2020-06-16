@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +20,6 @@ import io.exercis.workouts.WorkoutsComponentProvider
 import io.exercis.workouts.databinding.FragmentWorkoutsBinding
 import io.exercis.workouts.databinding.RowWorkoutBinding
 import io.exercis.workouts.domain.model.Workout
-import io.exercis.workouts.domain.model.Workouts
 import javax.inject.Inject
 
 // this fragment should be able to support:
@@ -30,20 +31,13 @@ import javax.inject.Inject
 
 class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
 
-    companion object {
-        fun newInstance() = WorkoutsFragment()
-    }
-
     private lateinit var binding: FragmentWorkoutsBinding
 
     @Inject
     lateinit var viewModelFactory: WorkoutsViewModelFactory
 
     private val viewModel: WorkoutsViewModel by viewModels {
-        GenericSavedStateViewModelFactory(
-            viewModelFactory,
-            this
-        )
+        GenericSavedStateViewModelFactory(viewModelFactory, this)
     }
 
     override fun onAttach(context: Context) {
@@ -106,7 +100,9 @@ class WorkoutsFragment : BaseFragment<WorkoutsEvent>() {
                     .show()
                 is WorkoutsEffect.NavigateToWorkout -> {
                     val workout = effect.workout
-                    findNavController().navigate(Uri.parse("exercisio://exercises"))
+//                    val request = NavDeepLinkRequest.Builder
+//                        .fromUri()
+                    findNavController().navigate(Uri.parse("exercisio://workout/${workout.name}"))
                 }
             }
         })
@@ -131,13 +127,13 @@ class WorkoutsViewHolder(
 class WorkoutsRecyclerAdapter(private val listener: (Workout) -> Unit) :
     RecyclerView.Adapter<WorkoutsViewHolder>() {
 
-    var data: Workouts = emptyList()
+    var data: List<Workout> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    constructor(data: Workouts, listener: (Workout) -> Unit) : this(listener) {
+    constructor(data: List<Workout>, listener: (Workout) -> Unit) : this(listener) {
         this.data = data
     }
 

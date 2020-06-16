@@ -9,10 +9,18 @@
     <fragment
         android:id="@+id/workoutsFragment"
         android:name="io.exercis.workouts.ui.WorkoutsFragment"
-        android:label="WorkoutsFragment"
+        android:label="Workouts"
         tools:layout="@layout/fragment_workouts">
         <argument android:name="param1" />
         <deepLink app:uri="exercisio://workouts" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutDetailsFragment"
+        android:name="io.exercis.workouts.ui.WorkoutDetailsFragment"
+        android:label="Workout Details"
+        tools:layout="@layout/fragment_workout_details">
+        <deepLink app:uri="exercisio://workout/{name}" /> <!--FIXME should be id-->
     </fragment>
 
 </navigation>

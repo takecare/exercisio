@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
+import androidx.navigation.fragment.findNavController
 import io.exercis.base.ui.BaseFragment
 import io.exercis.exercises.databinding.FragmentExercisesBinding
 import io.exercis.exercises.ExercisesComponentProvider
@@ -23,6 +25,13 @@ class ExercisesFragment : BaseFragment<ExercisesEvent>() {
         (activity?.application as ExercisesComponentProvider)
             .provideExercisesComponent()
             .inject(this)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+//        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+//            findNavController().popBackStack()
+//        }
     }
 
     override fun onCreateView(
