@@ -8,6 +8,7 @@ apply plugin: 'kotlin-kapt'
 //}
 
 dependencies {
-    implementation "com.google.dagger:dagger:2.27"
-    /*annotationProcessor*/ kapt "com.google.dagger:dagger-compiler:2.27"
+    def dagger_version = '2.27'
+    implementation "com.google.dagger:dagger:$dagger_version"
+    /*annotationProcessor*/ kapt "com.google.dagger:dagger-compiler:$dagger_version"
 }
