@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import io.exercis.base.di.GenericSavedStateViewModelFactory
 import io.exercis.base.ui.BaseFragment
 import io.exercis.workouts.WorkoutsComponentProvider
@@ -52,5 +53,19 @@ class WorkoutDetailsFragment : BaseFragment<WorkoutDetailsEvent>() {
         binding.workoutName.text = workoutName
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.observe(events)
+
+        viewModel.observeEffects(viewLifecycleOwner, Observer { effect ->
+            when (effect) {
+                is WorkoutDetailsEffect.NavigateToExercise -> {
+                    // TODO
+                }
+            }
+        })
     }
 }
