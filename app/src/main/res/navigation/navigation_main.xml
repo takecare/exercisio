@@ -26,4 +26,20 @@
         <argument android:name="param" />
         <deepLink app:uri="exercisio://dummy" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="io.exercis.ui.Fragment1"
+        android:label="Fragment 1"
+        tools:layout="@layout/fragment_dummy">
+        <deepLink app:uri="exercisio://fragment1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="io.exercis.ui.Fragment2"
+        android:label="Fragment 2"
+        tools:layout="@layout/fragment_dummy">
+        <deepLink app:uri="exercisio://fragment2" />
+    </fragment>
 </navigation>

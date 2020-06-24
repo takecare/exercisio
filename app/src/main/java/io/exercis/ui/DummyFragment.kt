@@ -15,7 +15,7 @@ class DummyFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: String) =
             DummyFragment().apply {
                 arguments = Bundle().apply { putString(ARG_PARAM, param1) }
             }
@@ -39,9 +39,41 @@ class DummyFragment : Fragment() {
         param?.let { binding.dummyText.text = it }
 
         binding.dummyButton.setOnClickListener {
-            findNavController().navigate(Uri.parse("exercisio://exercises"))
+            findNavController().navigate(Uri.parse("exercisio://fragment1"))
         }
 
+        return binding.root;
+    }
+}
+
+class Fragment1 : Fragment() {
+    private lateinit var binding: FragmentDummyBinding
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentDummyBinding.inflate(layoutInflater, container, false)
+        binding.dummyText.text = "FRAGMENT _1_"
+        binding.dummyButton.setOnClickListener {
+            findNavController().navigate(Uri.parse("exercisio://fragment2"))
+        }
+        return binding.root;
+    }
+}
+
+class Fragment2 : Fragment() {
+    private lateinit var binding: FragmentDummyBinding
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentDummyBinding.inflate(layoutInflater, container, false)
+        binding.dummyText.text = "FRAGMENT _2_"
+        binding.dummyButton.setOnClickListener {
+            findNavController().navigate(Uri.parse("exercisio://exercises"))
+        }
         return binding.root;
     }
 }

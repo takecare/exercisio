@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.savedstate.SavedStateRegistryOwner
 import io.exercis.R
