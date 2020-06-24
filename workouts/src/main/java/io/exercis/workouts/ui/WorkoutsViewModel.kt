@@ -1,5 +1,6 @@
 package io.exercis.workouts.ui
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import io.exercis.base.ui.BaseViewModel
@@ -12,6 +13,7 @@ import kotlinx.coroutines.launch
 
 // https://medium.com/androiddevelopers/viewmodels-and-livedata-patterns-antipatterns-21efaef74a54
 // https://stackoverflow.com/questions/47515997/observing-livedata-from-viewmodel
+// https://codelabs.developers.google.com/codelabs/advanced-kotlin-coroutines/index.html?index=..%2F..index#9
 
 class WorkoutsViewModel constructor(
     private val getWorkouts: GetWorkoutsUseCase,
@@ -20,6 +22,8 @@ class WorkoutsViewModel constructor(
     WorkoutsState(isLoading = true),
     handle
 ) {
+
+    private val workouts: MutableLiveData<Workout> = MutableLiveData()
 
     override fun handleEvent(event: WorkoutsEvent) {
         when (event) {
@@ -37,6 +41,18 @@ class WorkoutsViewModel constructor(
 
     private suspend fun loadData() {
         emit(currentState?.copy(isLoading = true))
+
+//        val state = getWorkouts
+//            ._execute()
+//            .map { workout ->
+//                val currentWorkouts = currentState?.data ?: emptyList()
+//                currentState?.copy(
+//                    isLoading = false,
+//                    data = currentWorkouts + workout
+//                )
+//            }
+//            .asLiveData()
+
         val workouts = getWorkouts.execute()
         emit(
             currentState?.copy(
